@@ -5,7 +5,7 @@ const PhotoGallery = () => {
   const [search, setSearch] = useState("");
   const { state } = useFetchPhotos();
   const { favourites, toggleFavourite } = useFavourites();
-  const handleSearch = useCallback((e) => setSearch(e.target.value));
+  const handleSearch = useCallback((e) => setSearch(e.target.value), []);
   const filteredImages = useMemo(() => {
     return state.images.filter((img) =>
       img.author.toLowerCase().includes(search.toLowerCase()),
